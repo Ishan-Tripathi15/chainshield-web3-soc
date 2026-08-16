@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChainShield SOC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div><div class="brand">CHAINSHIELD</div><div class="muted">Web3 Security Operations Center</div></div>
+  <div class="actions"><span id="network" class="pill">Demo mode</span><button id="connectBtn">Connect Wallet</button></div>
+</header>
+<main class="container">
+  <section class="hero"><div><span class="eyebrow">DECENTRALIZED INCIDENT RESPONSE</span><h1>Monitor. Verify. Respond.</h1><p>On-chain incident evidence + explainable transaction risk scoring + client-side cryptography.</p></div><div class="hero-score"><div class="muted">SYSTEM RISK</div><strong id="systemRisk">42</strong><span>/100</span></div></section>
+  <section class="metrics"><div class="metric"><span>Open incidents</span><strong id="openCount">0</strong></div><div class="metric"><span>Critical alerts</span><strong id="criticalCount">0</strong></div><div class="metric"><span>Resolved</span><strong id="resolvedCount">0</strong></div><div class="metric"><span>Evidence hashes</span><strong id="hashCount">0</strong></div></section>
+  <section class="grid">
+    <div class="card"><div class="card-head"><h2>Transaction Risk Analyzer</h2><span class="pill">Explainable</span></div><label>Wallet address</label><input id="walletInput" placeholder="0x..." /><label>Transaction value (ETH)</label><input id="valueInput" type="number" step="0.01" value="2.5" /><label>Failed transactions (24h)</label><input id="failedInput" type="number" value="3" /><button id="analyzeBtn" class="primary">Analyze Transaction</button><div id="riskResult" class="result hidden"></div></div>
+    <div class="card"><div class="card-head"><h2>Evidence Vault</h2><span class="pill">Local crypto</span></div><label>Incident evidence / analyst note</label><textarea id="evidenceInput" rows="5" placeholder="Paste a forensic note or event summary..."></textarea><div class="row"><button id="hashBtn">Generate SHA-256 Hash</button><button id="encryptBtn">Encrypt Note</button></div><pre id="cryptoOutput" class="output">No operation performed.</pre></div>
+  </section>
+  <section class="card"><div class="card-head"><h2>Incident Timeline</h2><button id="seedBtn">Load Demo Incidents</button></div><div id="incidents" class="timeline"></div></section>
+  <section class="card"><div class="card-head"><h2>Register Incident</h2><span class="pill">On-chain ready</span></div><div class="form-grid"><input id="titleInput" placeholder="Incident title"><select id="severityInput"><option value="0">LOW</option><option value="1">MEDIUM</option><option value="2" selected>HIGH</option><option value="3">CRITICAL</option></select><input id="evidenceHashInput" placeholder="Evidence SHA-256 / bytes32 hash"></div><button id="registerBtn" class="primary">Register Incident</button><p id="chainStatus" class="muted">Connect MetaMask to submit an on-chain transaction. Demo incidents remain local.</p></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
